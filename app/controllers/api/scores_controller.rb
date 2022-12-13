@@ -16,7 +16,7 @@ module Api
     end
 
     def user_scores
-      scores = Score.all.where(user_id: params[:id])
+      scores = Score.all.where(user_id: params[:user_id])
                     .order(played_at: :desc, id: :desc).includes(:user)
       serialized_scores = scores.map(&:serialize)
 
